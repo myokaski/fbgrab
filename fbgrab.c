@@ -303,7 +303,7 @@ static void convert8888to32(unsigned int width, unsigned int height,
 	/* RED   = 2 */
         outbuffer[dstidx+Red] = inbuffer[srcidx+srcRed];
 	/* ALPHA */
-        outbuffer[dstidx+Alpha] = srcAlpha >= 0 ? inbuffer[srcidx+srcAlpha] : '\0';
+        outbuffer[dstidx+Alpha] = srcAlpha >= 0 ? 255 - inbuffer[srcidx+srcAlpha] : '\0';
     }
 }
 
