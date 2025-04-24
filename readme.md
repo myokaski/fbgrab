@@ -50,8 +50,8 @@ FBGrab is a framebuffer screenshot program, capturing the linux frambuffer and c
 
        -l line length, a.k.a. stride.
               the length  in  pixels  between  the  start  of  each row in the
-              framebuffer, which might be larger or equal  to  width. Optional
-              when reading from device.
+              framebuffer, which might be larger or equal  to  width. Defaults
+              to width when reading from file.
 
        -s seconds
               specifies how many seconds to wait before grabbing. fbshot  does

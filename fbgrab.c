@@ -86,7 +86,7 @@ static void help(char *binary)
     fprintf(stderr, "\t-v    \tverbose, print debug information.\n");
     fprintf(stderr, "\t-w n  \tset width to n pixels, required when reading from file\n"
 	   "\t\tcan be used to force width when reading from framebuffer\n");
-    fprintf(stderr, "\t-l n  \tset line length, stride, to n pixels, required when reading from file\n");
+    fprintf(stderr, "\t-l n  \tset line length, stride, to n pixels, defaults to width when reading from file\n");
     fprintf(stderr, "\t-z n  \tPNG compression level: 0 (fast) .. 9 (best)\n");
     fprintf(stderr, "\t-?    \tprint this usage information\n");
 }
@@ -516,6 +516,10 @@ int main(int argc, char **argv)
             fprintf(stderr, "Width, height and bitdepth are mandatory when reading from file\n");
             exit(EXIT_FAILURE);
         }
+
+        if (UNDEFINED == line_length)
+            line_length = width;
+
     }
     else
     {
